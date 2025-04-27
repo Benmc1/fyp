@@ -1,0 +1,31 @@
+question,answer
+assign variable x to value of field foo.bar.baz in input,,x := input.foo.bar.baz
+check if variable x has same value as variable y,,x == y
+lookup value at index 0,,val := arr[0]
+check if value at index 0 is "foo",,"foo" == arr[0]
+find all indices i that have value "foo",,"foo" == arr[i]
+lookup last value,,val := arr[count(arr)-1]
+lookup value for key "foo",,val := obj["foo"]
+check if value for key "foo" is "bar",,"bar" == obj["foo"]
+check if key "foo" exists and is not false,,obj.foo
+check if key assigned to variable k exists,,k := "foo" obj[k]
+check if path foo.bar.baz exists and is not false,,obj.foo.bar.baz
+check if path foo.bar.baz foo.bar or foo does not exist or is false,,not obj.foo.bar.baz
+check if "foo" belongs to the set,,a_set["foo"]
+check if "foo" DOES NOT belong to the set,,not a_set["foo"]
+check if the array ["a" "b" "c"] belongs to the set,,a_set[["a" "b" "c"]]
+iterate over indices i,,arr[i]
+iterate over values,,val := arr[_]
+iterate over index/value pairs,,val := arr[i]
+iterate over keys,,obj[key]
+iterate over values,,val := obj[_]
+iterate over key/value pairs,,val := obj[key]
+iterate over values,,set[val]
+with keywords,,some val in set
+nested: find key k whose bar.baz array index i is 7,,foo[k].bar.baz[i] == 7
+simultaneous self: find 2 keys in object foo with same value,,foo[k1] == foo[k2]; k1 != k2
+multiple conditions: k has same value in both conditions,,foo[k].bar.baz[i] == 7; foo[k].qux > 3
+assert no values in set match predicate,,count({x | set[x]; f(x)}) == 0
+assert all values in set make function f true,,count({x | set[x]; f(x)}) == count(set)
+assert no values in set make function f true (using negation and helper rule),,not any_match
+assert all values in set make function f true (using negation and helper rule)s,,not any_not_match

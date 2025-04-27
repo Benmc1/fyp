@@ -1,0 +1,39 @@
+services:
+  opa:
+    image: openpolicyagent/opa:latest
+    command:
+      - "run"
+      - "--server"
+      - "--log-level=debug"
+      - "--addr=0.0.0.0:8181"
+    ports:
+      - "8181:8181"
+
+  rasa:
+    image: rasa/rasa:latest
+    command: ["run", "--model", "RGO1.gz", "--enable-api", "--cors", "*"]
+    ports:
+      - "5005:5005"
+    volumes:
+      - "./rasa:/app"
+
+  action-server:
+    image: rasa/rasa-sdk:latest
+    ports:
+      - "5055:5055"
+    volumes:
+      - "./rasa/actions:/app/actions"
+      - "./rasa/endpoints.yml:/app/endpoints.yml"
+    depends_on:
+      - rasa
+
+  ryu:
+    image: iwaseyusuke/ryu-mininet
+    command: ["ryu-manager", "--ofp-tcp-listen-port", "6653", "ryu.app.simple_switch_13"]
+    ports:
+      - "6663:6663"
+      - "8080:8080"
+    depends_on:
+      - action-server
+    volumes:
+      - "./ryu:/root/ryu"

@@ -1,0 +1,37 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+- intent: change_traffic_routing
+  examples: |
+    - Routing traffic from [node A](source_node) to [node B](destination_node)
+    - Create a rule to route traffic from [server1](source_node) to [server2](destination_node)
+    - Permit packets from [ip 192.101.191.12](source_node) to [ip 168.12.10.1](destination_node)
+
+- intent: get_active_policies
+  examples: |
+    - Show me the active policies 
+    - What policies are currently running 
+    - Get the active policies

@@ -1,0 +1,32 @@
+{"question": "team_role gets the role that the subject has for the team returning undefined if the user has no explicit role for that team", "answer": "team_role(subject, team_id) = role {\n\tsubject_team := subject.teams[_]\n\tsubject_team.id == team_id\n\trole := subject_team.role\n    }"}
+{"question": "check if variable x is a set containing \"foo\" and \"bar", "answer": "x == {\"foo\", \"bar\"}"}
+{"question": "assign variable x to value of field foo.bar.baz in input", "contect": NaN, "answer": "x := input.foo.bar.baz"}
+{"question": "check if variable x has same value as variable y", "contect": NaN, "answer": "x == y"}
+{"question": "lookup value at index 0", "contect": NaN, "answer": "val := arr[0]"}
+{"question": "check if value at index 0 is \"foo\"", "contect": NaN, "answer": "foo == arr[0]"}
+{"question": "find all indices i that have value \"foo\"", "contect": NaN, "answer": "foo == arr[i]"}
+{"question": "lookup last value", "contect": NaN, "answer": "val := arr[count(arr)-1]"}
+{"question": "lookup value for key \"foo\"", "contect": NaN, "answer": "val := obj[\"foo\"]"}
+{"question": "check if value for key \"foo\" is \"bar\"", "contect": NaN, "answer": "bar == obj[\"foo\"]"}
+{"question": "check if key \"foo\" exists and is not false", "contect": NaN, "answer": "obj.foo"}
+{"question": "check if key assigned to variable k exists", "contect": NaN, "answer": "k := \"foo\" obj[k]"}
+{"question": "check if path foo.bar.baz exists and is not false", "contect": NaN, "answer": "obj.foo.bar.baz"}
+{"question": "check if path foo.bar.baz foo.bar or foo does not exist or is false", "contect": NaN, "answer": "not obj.foo.bar.baz"}
+{"question": "check if \"foo\" belongs to the set", "contect": NaN, "answer": "a_set[\"foo\"]"}
+{"question": "check if \"foo\" DOES NOT belong to the set", "contect": NaN, "answer": "not a_set[\"foo\"]"}
+{"question": "check if the array [\"a\" \"b\" \"c\"] belongs to the set", "contect": NaN, "answer": "a_set[[\"a\" \"b\" \"c\"]]"}
+{"question": "iterate over indices i", "contect": NaN, "answer": "arr[i]"}
+{"question": "iterate over values", "contect": NaN, "answer": "val := arr[_]"}
+{"question": "iterate over index/value pairs", "contect": NaN, "answer": "val := arr[i]"}
+{"question": "iterate over keys", "contect": NaN, "answer": "obj[key]"}
+{"question": "iterate over values", "contect": NaN, "answer": "val := obj[_]"}
+{"question": "iterate over key/value pairs", "contect": NaN, "answer": "val := obj[key]"}
+{"question": "iterate over values", "contect": NaN, "answer": "set[val]"}
+{"question": "with keywords", "contect": NaN, "answer": "some val in set"}
+{"question": "nested: find key k whose bar.baz array index i is 7", "contect": NaN, "answer": "foo[k].bar.baz[i] == 7"}
+{"question": "simultaneous self: find 2 keys in object foo with same value", "contect": NaN, "answer": "foo[k1] == foo[k2]; k1 != k2"}
+{"question": "multiple conditions: k has same value in both conditions", "contect": NaN, "answer": "foo[k].bar.baz[i] == 7; foo[k].qux > 3"}
+{"question": "assert no values in set match predicate", "contect": NaN, "answer": "count({x | set[x]; f(x)}) == 0"}
+{"question": "assert all values in set make function f true", "contect": NaN, "answer": "count({x | set[x]; f(x)}) == count(set)"}
+{"question": "assert no values in set make function f true (using negation and helper rule)", "contect": NaN, "answer": "not any_match"}
+{"question": "assert all values in set make function f true (using negation and helper rule)s", "contect": NaN, "answer": "not any_not_match"}
