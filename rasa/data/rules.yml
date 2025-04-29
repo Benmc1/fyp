@@ -2,11 +2,6 @@ version: "3.1"
 
 rules:
 
-- rule: Say hello
-  steps:
-   - intent: greet
-   - action: action_say_hello
-
 - rule: Say goodbye anytime the user says goodbye
   steps:
   - intent: goodbye
@@ -17,12 +12,12 @@ rules:
   - intent: bot_challenge
   - action: utter_iamabot
 
-- rule: Change traffic routing 
-  steps:
-  - intent: change_traffic_routing
-  - action: action_change_route
-
 - rule: Get active policies
   steps:
   - intent: get_active_policies
   - action: action_get_policies
+
+- rule: complete network action
+  steps:
+  - intent: network_action
+  - action: send_network_request

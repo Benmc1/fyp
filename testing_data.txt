@@ -1,0 +1,15 @@
+Define a flow to reroute traffic from host C to host D if the main link is down
+Set a default flow to drop all traffic that does not match any defined rule
+Configure a flow rule to forward all HTTP traffic (port 80) from host A to host B
+Create a rule to mirror all incoming traffic on switch S1 to a monitoring port
+Install a flow rule to block all ICMP (ping) packets on switch S2
+Configure a high-priority rule to route traffic from IP 10.0.0.1 through port 2.
+Redirect all DNS requests (UDP port 53) to a specific DNS server at 10.0.0.53
+Set a rule to drop all traffic originating from a blacklisted MAC address
+Forward all traffic from subnet 192.168.1.0/24 to a specific gateway IP
+Create a rule to redirect all HTTPS traffic (port 443) to a proxy server
+Install a flow that allows only TCP traffic and drops all other protocols
+Detect and block traffic spikes by dropping flows exceeding a packet rate threshold
+Allow ARP packets to flood across all ports to enable address resolution
+Allow DHCP traffic (ports 67 and 68) only from authorized MAC addresses
+Create a rule to isolate traffic between two VLANs except for specific whitelisted IPs

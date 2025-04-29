@@ -1,49 +1,40 @@
 from typing import Text, Dict, Any, List
 import requests
+import random
 
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SlotSet
 
-class ActionChangeRouting(Action):
+class NetworkAction(Action):
 
     def name(self) -> Text:
-        return "action_change_route"
+        return "send_network_request"
 
     def run(self,
            dispatcher: CollectingDispatcher,
            tracker: Tracker,
            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        source = tracker.get_slot("source_node")
-        destination = tracker.get_slot("destination_node")
+        user_message = tracker.latest_message['text']
+        ITM_url = "https://69eb-35-247-167-103.ngrok-free.app/ask"
+        payload = {"question": f"{user_message}"}
+        policyresponse = requests.post(ITM_url, json=payload)
+        policy = policyresponse.text.strip('"')
 
-        if not source or not destination:
-            dispatcher.utter_message(text="I need both source and destination nodes to check the rule. I recieved" )
-            return []
-        dispatcher.utter_message(TEXT = "found source and destination")
-
-        test_input = {
-            "input": {
-                "action": "route_traffic",
-                "source": source,
-                "destination": destination
-            }
-        }
-        
-        opa_check_url = "http://fyp-opa-1:8181/v1/polices/"
-        response = requests.put(url=opa_check_url, json=test_input, timeout=5)
+        opa_check_url = "http://fyp-opa-1:8181/v1/polices/" + str(random.randint(1000, 9999))
+        response = requests.put(url=opa_check_url, data=policy, timeout=5)
 
         if response.status_code == 200:
             opa_result = response.json()
             allowed = opa_result.get("result", {}).get("allow", False)
 
             if allowed:
-                dispatcher.utter_message(text=f"Rule validation successful: Routing from {source} to {destination} is permitted.")
+                dispatcher.utter_message(text=f"Rule validation successful: ")
             else:
-                dispatcher.utter_message(text=f"Rule validation failed: Routing from {source} to {destination} is not allowed.")
+                dispatcher.utter_message(text=f"Rule validation failed: ")
         else:
-            dispatcher.utter_message(text=f"Failed with response code: {response.status_code} and message: {response.reason}")
+            dispatcher.utter_message(text=f"Failed with response code: {response.status_code} and message: {response.json()}")
         return []
 
 class ActionSayHello(Action):

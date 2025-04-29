@@ -8,7 +8,7 @@ intents:
   - mood_great
   - mood_unhappy
   - bot_challenge
-  - change_traffic_routing
+  - network_action
   - get_active_policies
 
 responses:
@@ -36,27 +36,15 @@ session_config:
   carry_over_slots_to_new_session: true
 
 entities:
-  - source_node
-  - destination_node
   - active policies
 
 slots:
-  source_node:
-    type: text
-    mappings:
-      - type: from_entity
-        entity: source_node
-  destination_node:
-    type: text
-    mappings:
-      - type: from_entity
-        entity: destination_node
   active_policies:
     type: list
     mappings:
       - type: custom
 
 actions:
-  - action_change_route
   - action_say_hello
   - action_get_policies
+  - send_network_request

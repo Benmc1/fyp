@@ -24,14 +24,55 @@ nlu:
     - am I talking to a bot?
     - am I talking to a human?
 
-- intent: change_traffic_routing
-  examples: |
-    - Routing traffic from [node A](source_node) to [node B](destination_node)
-    - Create a rule to route traffic from [server1](source_node) to [server2](destination_node)
-    - Permit packets from [ip 192.101.191.12](source_node) to [ip 168.12.10.1](destination_node)
 
 - intent: get_active_policies
   examples: |
     - Show me the active policies 
     - What policies are currently running 
     - Get the active policies
+
+- intent: network_action
+  examples: |
+    - Allow access only from 10.0.0.0/24  
+    - Deny all external traffic  
+    - Create a policy to block IPs not in the approved list  
+    - Allow SSH only from specific IPs  
+    - Whitelist a single IPv6 address  
+    - Restrict access to a subnet  
+    - Block all traffic from non-US IPs  
+    - Only permit internal IP ranges for admin panel  
+    - Allow only users with the admin role to delete data  
+    - Give viewer role read-only access  
+    - Deny guest role access to confidential APIs  
+    - Restrict write operations to editor role  
+    - Permit access to dashboards for analyst roles  
+    - Allow users with multiple roles including auditor  
+    - Allow access only during business hours  
+    - Deny access on weekends  
+    - Limit access to 9am–5pm local time  
+    - Only permit login during scheduled time slots  
+    - Create a policy for maintenance window access (2am–4am)  
+    - Deny users from outside the US  
+    - Allow access from EU countries only  
+    - Restrict login attempts from specific regions  
+    - Geo-fence to only allow US and Canada  
+    - Permit access if user's department is HR  
+    - Allow users with clearance level >= 3  
+    - Grant access based on project tags  
+    - Deny users with expired credentials  
+    - Allow if resource.owner == input.user  
+    - Allow access only if user is authenticated  
+    - Block all unauthenticated requests  
+    - Require JWT token to access API  
+    - Validate session token before granting access  
+    - Log all denied access attempts  
+    - Create an audit trail for policy evaluations  
+    - Generate a rule that logs every API call  
+    - Allow GET requests on /pets endpoint  
+    - Deny DELETE on all resources  
+    - Only allow POST to /orders by admin  
+    - Create policy to secure /admin routes  
+    - Write a basic example of a deny-by-default policy  
+    - What does a minimal Rego policy look like?  
+    - Write a policy that always returns true  
+    - How do I check input.resource.type?
