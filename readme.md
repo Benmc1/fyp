@@ -51,9 +51,9 @@ Example Request (JSON):
 ```
 ## Data repos
 These are the repos where most of the examples came from. Each rego was taken broken into labeled question:answer pairs and stroed in jsonl for training
-https://github.com/CptOfEvilMinions/fleet
-https://github.com/DominusKelvin/fleet
-https://github.com/KarlatIwoca/fleets
-https://github.com/open-policy-agent/opa
-https://www.openpolicyagent.org/docs/latest/policy-language/
-https://github.com/fugue/fregot/
+- https://github.com/CptOfEvilMinions/fleet
+- https://github.com/DominusKelvin/fleet
+- https://github.com/KarlatIwoca/fleets
+- https://github.com/open-policy-agent/opa
+- https://www.openpolicyagent.org/docs/latest/policy-language/
+- https://github.com/fugue/fregot/
