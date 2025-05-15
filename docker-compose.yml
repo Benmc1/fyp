@@ -26,14 +26,3 @@ services:
       - "./rasa/endpoints.yml:/app/endpoints.yml"
     depends_on:
       - rasa
-
-  ryu:
-    image: iwaseyusuke/ryu-mininet
-    command: ["ryu-manager", "--ofp-tcp-listen-port", "6653", "ryu.app.simple_switch_13"]
-    ports:
-      - "6663:6663"
-      - "8080:8080"
-    depends_on:
-      - action-server
-    volumes:
-      - "./ryu:/root/ryu"

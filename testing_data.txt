@@ -1,15 +1,29 @@
-Define a flow to reroute traffic from host C to host D if the main link is down
-Set a default flow to drop all traffic that does not match any defined rule
-Configure a flow rule to forward all HTTP traffic (port 80) from host A to host B
-Create a rule to mirror all incoming traffic on switch S1 to a monitoring port
-Install a flow rule to block all ICMP (ping) packets on switch S2
+Define a flow to reroute traffic from host C to host D if the main link is down.
+Set a default flow to drop all traffic that does not match any defined rule.
+Configure a flow rule to forward all HTTP traffic (port 80) from host A to host B.
+Create a rule to mirror all incoming traffic on switch S1 to a monitoring port.
+Install a flow rule to block all ICMP (ping) packets on switch S2.
 Configure a high-priority rule to route traffic from IP 10.0.0.1 through port 2.
 Redirect all DNS requests (UDP port 53) to a specific DNS server at 10.0.0.53
-Set a rule to drop all traffic originating from a blacklisted MAC address
-Forward all traffic from subnet 192.168.1.0/24 to a specific gateway IP
-Create a rule to redirect all HTTPS traffic (port 443) to a proxy server
-Install a flow that allows only TCP traffic and drops all other protocols
-Detect and block traffic spikes by dropping flows exceeding a packet rate threshold
-Allow ARP packets to flood across all ports to enable address resolution
-Allow DHCP traffic (ports 67 and 68) only from authorized MAC addresses
-Create a rule to isolate traffic between two VLANs except for specific whitelisted IPs
+Set a rule to drop all traffic originating from a blacklisted MAC address.
+Forward all traffic from subnet 192.168.1.0/24 to a specific gateway IP.
+Create a rule to redirect all HTTPS traffic (port 443) to a proxy server.
+Install a flow that allows only TCP traffic and drops all other protocols.
+Detect and block traffic spikes by dropping flows exceeding a packet rate threshold.
+Allow ARP packets to flood across all ports to enable address resolution.
+Allow DHCP traffic (ports 67 and 68) only from authorized MAC addresses.
+Create a rule to isolate traffic between two VLANs except for specific whitelisted IPs.
+Allow SSH (port 22) access only from the admin subnet 192.168.10.0/24.
+Drop traffic to port 25 (SMTP) to prevent unauthorized email relay.
+Forward all traffic from port 8080 to port 80 internally.
+Allow only HTTPS (port 443) traffic to external IPs.
+Block all outbound traffic from guest VLAN.
+Prioritize VoIP traffic (UDP port range 10000–20000) for QoS.
+Permit traffic to specific CDN IP ranges for video streaming.
+Redirect traffic from deprecated service IP to a maintenance page.
+Log all denied access attempts from external IP addresses.
+Allow ICMP echo requests but drop ICMP echo replies.
+Enable multicast forwarding only within VLAN 30.
+Throttle traffic from devices that exceed 1000 connections per minute.
+Allow internal DNS traffic but block external DNS queries.
+Automatically quarantine any host that sends malformed packets.
