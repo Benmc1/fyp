@@ -7,6 +7,8 @@ from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SlotSet
 
 class NetworkAction(Action):
+    
+    ITM_url = "https://69eb-35-247-167-103.ngrok-free.app/ask"
 
     def name(self) -> Text:
         return "send_network_request"
@@ -17,7 +19,7 @@ class NetworkAction(Action):
            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         user_message = tracker.latest_message['text']
-        ITM_url = "https://69eb-35-247-167-103.ngrok-free.app/ask"
+        
         payload = {"question": f"{user_message}"}
         policyresponse = requests.post(ITM_url, json=payload)
         policy = policyresponse.text.strip('"')
